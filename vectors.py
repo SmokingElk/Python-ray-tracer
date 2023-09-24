@@ -3,10 +3,10 @@ def lerp(a, b, mixing):
 
 
 class Vec3:
-    def __init__(self, x, y = x, z = y):
+    def __init__(self, x, y=None, z=None):
         self.x = x
-        self.y = y
-        self.z = z
+        self.y = self.x if y == None else y 
+        self.z = self.y if z == None else z
 
     def __add__(self, other):
         return Vec3(
@@ -95,6 +95,9 @@ class Vec3:
             lerp(self.y, other.y, mixing),
             lerp(self.z, other.z, mixing),
         )
+
+    def __str__(self):
+        return f"Vec3({self.x}, {self.y}, {self.z})"
 
     def copy(self):
         return Vec3(self.x, self.y, self.z)
