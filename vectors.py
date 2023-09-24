@@ -19,6 +19,7 @@ class Vec3:
         self.x += other.x
         self.y += other.y
         self.z += other.z
+        return self
 
     def __sub__(self, other):
         return Vec3(
@@ -31,62 +32,65 @@ class Vec3:
         self.x -= other.x
         self.y -= other.y
         self.z -= other.z
+        return self
 
     def __mul__(self, other):
-        if instance(other, Vec3):
+        if isinstance(other, float):
             return Vec3(
-                self.x * other.x,
-                self.y * other.y,
-                self.z * other.z,
+                self.x * other,
+                self.y * other,
+                self.z * other,
             )
 
         return Vec3(
-            self.x * other,
-            self.y * other,
-            self.z * other,
+            self.x * other.x,
+            self.y * other.y,
+            self.z * other.z,
         )
 
     def __imul__(self, other):
-        if instance(other, Vec3): 
-            self.x *= other.x
-            self.y *= other.y
-            self.z *= other.z
-            return
+        if isinstance(other, float): 
+            self.x *= other
+            self.y *= other
+            self.z *= other
+            return self
 
         self.x *= other.x
         self.y *= other.y
         self.z *= other.z
+        return self
 
     def __truediv__(self, other):
-        if instance(other, Vec3):
+        if isinstance(other, float):
             return Vec3(
-                self.x / other.x,
-                self.y / other.y,
-                self.z / other.z,
+                self.x / other,
+                self.y / other,
+                self.z / other,
             )
 
         return Vec3(
-            self.x /other,
-            self.y / other,
-            self.z / other,
+            self.x / other.x,
+            self.y / other.y,
+            self.z / other.z,
         )
 
     def __itruediv__(self, other):
-        if instance(other, Vec3): 
-            self.x /= other.x
-            self.y /= other.y
-            self.z /= other.z
-            return
+        if isinstance(other, float): 
+            self.x /= other
+            self.y /= other
+            self.z /= other
+            return self
 
         self.x /= other.x
         self.y /= other.y
         self.z /= other.z
+        return self
 
-    def __len__(self):
+    def mag(self):
         return (self.x**2 + self.y**2 + self.z**2)**0.5
 
     def norm(self):
-        self /= len(self)
+        self /= self.mag()
         return self
 
     def mix(self, other, mixing):
