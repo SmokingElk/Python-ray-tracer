@@ -1,7 +1,10 @@
 from vectors import Vec3
+from time import sleep
+from math import cos, sin
+from sys import stdout
 
-WIDTH = 160
-HEIGHT = 40
+WIDTH = 120
+HEIGHT = 30
 ASPECT_RATIO = WIDTH / HEIGHT
 PIXEL_ASPECT = 11 / 24
 GRADIENT = " .:|/(@"
@@ -114,8 +117,19 @@ def calc_image():
 
     
 def main():
-    image = calc_image()
-    print(image)    
+    global LIGHT_DIR
+
+    angle = 0
+    SQRT_2 = 2**0.5
+
+    for i in range(100000):
+        angle += 0.2
+        LIGHT_DIR = Vec3(cos(angle) * SQRT_2, 0.5, sin(angle) * SQRT_2).norm()
+        
+        image = calc_image()
+        stdout.write(image)
+
+        sleep(1 / 30)
 
 
 if __name__ == "__main__":
