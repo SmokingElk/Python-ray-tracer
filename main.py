@@ -1,4 +1,4 @@
-from vectors import Vec3
+from vectors import Vec3, dot
 from time import sleep
 from math import cos, sin
 from sys import stdout
@@ -13,7 +13,6 @@ GRADIENT = " .:|/(@"
 DIST_TO_SCREEN = ASPECT_RATIO * PIXEL_ASPECT * (3**0.5)
 
 CAMERA_POS = Vec3(0, 0, -4)
-
 VIEW_MIN = 0.0001
 VIEW_MAX = 10000
 
@@ -40,9 +39,9 @@ SPHERES = [
 def sphere_intersection(ro, rd, pos, radius):
     o = ro - pos
 
-    a = rd.dot(rd)
-    b = o.dot(rd)
-    c = o.dot(o) - radius;
+    a = dot(rd, rd)
+    b = dot(o, rd)
+    c = dot(o, o) - radius;
 
     D = b**2 - a * c
     if D < 0:
@@ -83,9 +82,10 @@ def cast_ray(ro, rd):
     collide_dot = ro + rd * closest
     normal = calc_normal(closest_object["pos"], collide_dot)
     
-    diffuse = max(0, normal.dot(LIGHT_DIR)) * 0.8 + 0.2
+    diffuse = max(0, dot(normal, LIGHT_DIR)) * 0.8 + 0.2
 
     return diffuse
+
 
 def get_pixel_color(pixel_x, pixel_y):
     x = (pixel_x / WIDTH * 2 - 1) * ASPECT_RATIO * PIXEL_ASPECT

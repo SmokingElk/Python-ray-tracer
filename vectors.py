@@ -2,6 +2,10 @@ def lerp(a, b, mixing):
     return a + (b - a) * mixing   
 
 
+def dot(vec1, vec2):
+    return vec1.x * vec2.x + vec1.y * vec2.y + vec1.z * vec2.z
+
+
 class Vec3:
     def __init__(self, x, y=None, z=None):
         self.x = x
@@ -85,9 +89,6 @@ class Vec3:
         self.y /= other.y
         self.z /= other.z
         return self
-
-    def dot(self, other):
-        return self.x * other.x + self.y * other.y + self.z * other.z
 
     def mag(self):
         return (self.x**2 + self.y**2 + self.z**2)**0.5
