@@ -1,4 +1,4 @@
-from vectors import Vec3, dot
+from vectors import Vec3
 from time import sleep
 from math import cos, sin
 from sys import stdout
@@ -16,7 +16,7 @@ CAMERA_POS = Vec3(0, 0, -4)
 VIEW_MIN = 0.0001
 VIEW_MAX = 10000
 
-LIGHT_DIR = Vec3(-0.5, 0.5, -0.5).norm()
+light_dir = Vec3(-0.5, 0.5, -0.5).norm()
 
 SPHERES = [
     {
@@ -39,9 +39,9 @@ SPHERES = [
 def sphere_intersection(ro, rd, pos, radius):
     o = ro - pos
 
-    a = dot(rd, rd)
-    b = dot(o, rd)
-    c = dot(o, o) - radius;
+    a = rd @ rd
+    b = o @ rd
+    c = (o @ o) - radius;
 
     D = b**2 - a * c
     if D < 0:
@@ -82,7 +82,7 @@ def cast_ray(ro, rd):
     collide_dot = ro + rd * closest
     normal = calc_normal(closest_object["pos"], collide_dot)
     
-    diffuse = max(0, dot(normal, LIGHT_DIR)) * 0.8 + 0.2
+    diffuse = max(0, normal @ light_dir) * 0.8 + 0.2
 
     return diffuse
 
@@ -117,14 +117,14 @@ def calc_image():
 
     
 def main():
-    global LIGHT_DIR
+    global light_dir
 
     angle = 0
     SQRT_2 = 2**0.5
 
     for i in range(100000):
         angle += 0.2
-        LIGHT_DIR = Vec3(cos(angle) * SQRT_2, 0.5, sin(angle) * SQRT_2).norm()
+        light_dir = Vec3(cos(angle) * SQRT_2, 0.5, sin(angle) * SQRT_2).norm()
         
         image = calc_image()
         stdout.write(image)
