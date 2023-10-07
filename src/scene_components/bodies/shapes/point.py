@@ -13,20 +13,20 @@ class Point:
     def reverse_normal():
         """Returns the normal's direction in the point. Used by CSG system."""
 
-    def __eq__(other: Point):
+    def __eq__(other: "Point"):
         pass
 
-    def __ne__(other: Point):
+    def __ne__(other: "Point"):
         pass
 
-    def __lt__(other: Point):
+    def __lt__(other: "Point"):
         pass
 
-    def __le__(other: Point):
+    def __le__(other: "Point"):
         pass
 
-    def __gt__(other: Point):
+    def __gt__(other: "Point"):
         pass
 
-    def __ge__(other: Point):
+    def __ge__(other: "Point"):
         pass

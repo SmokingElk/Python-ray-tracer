@@ -8,7 +8,7 @@ class Vec3:
         self.y = self.x if y == None else y 
         self.z = self.y if z == None else z
 
-    def __add__(self, other):
+    def __add__(self, other: "Vec3"):
         """Returns vectors sum."""
         return Vec3(
             self.x + other.x,
@@ -16,13 +16,13 @@ class Vec3:
             self.z + other.z,
         )
 
-    def __iadd__(self, other):
+    def __iadd__(self, other: "Vec3"):
         self.x += other.x
         self.y += other.y
         self.z += other.z
         return self
 
-    def __sub__(self, other):
+    def __sub__(self, other: "Vec3"):
         """Returns vectors difference."""
         return Vec3(
             self.x - other.x,
@@ -30,13 +30,13 @@ class Vec3:
             self.z - other.z,
         )
 
-    def __isub__(self, other):
+    def __isub__(self, other: "Vec3"):
         self.x -= other.x
         self.y -= other.y
         self.z -= other.z
         return self
 
-    def __mul__(self, other):
+    def __mul__(self, other: "Vec3"):
         "Returns product of the vector and a number or another vector."
         if isinstance(other, float):
             return Vec3(
@@ -51,7 +51,7 @@ class Vec3:
             self.z * other.z,
         )
 
-    def __imul__(self, other):
+    def __imul__(self, other: "Vec3"):
         if isinstance(other, float): 
             self.x *= other
             self.y *= other
@@ -63,7 +63,7 @@ class Vec3:
         self.z *= other.z
         return self
 
-    def __truediv__(self, other):
+    def __truediv__(self, other: "Vec3"):
         """Returns product of the vector and an inverse number or another vector."""
         if isinstance(other, float):
             return Vec3(
@@ -78,7 +78,7 @@ class Vec3:
             self.z / other.z,
         )
 
-    def __itruediv__(self, other):
+    def __itruediv__(self, other: "Vec3"):
         if isinstance(other, float): 
             self.x /= other
             self.y /= other
@@ -90,7 +90,7 @@ class Vec3:
         self.z /= other.z
         return self
 
-    def __matmul__(self, other):
+    def __matmul__(self, other: "Vec3"):
         """Returns dot product of 2 vectors."""
         return self.x * other.x + self.y * other.y + self.z * other.z
 
@@ -103,7 +103,7 @@ class Vec3:
         self /= self.mag()
         return self
 
-    def mix(self, other, mixing):
+    def mix(self, other: "Vec3", mixing: float):
         """Returns a linear interpolation of 2 vectors."""
         return Vec3(
             lerp(self.x, other.x, mixing),
