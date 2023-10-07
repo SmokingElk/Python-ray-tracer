@@ -41,7 +41,7 @@ def sphere_intersection(ro, rd, pos, radius):
 
     a = rd @ rd
     b = o @ rd
-    c = (o @ o) - radius;
+    c = (o @ o) - radius
 
     D = b**2 - a * c
     if D < 0:

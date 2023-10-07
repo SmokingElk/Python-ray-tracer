@@ -108,3 +108,4 @@ class Vec3:
 
     def copy(self):
         return Vec3(self.x, self.y, self.z)
+        
