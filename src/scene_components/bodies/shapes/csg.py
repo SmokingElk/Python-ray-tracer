@@ -14,17 +14,17 @@ class Union(CSGShapeBase):
 
 class Intersection(CSGShapeBase):
     """Intersection CSG operation."""
-    def __init__(shape_a: ShapeBase, shape_b: ShapeBase):
+    def __init__(self, shape_a: ShapeBase, shape_b: ShapeBase):
         pass
 
-    def _collider(ro: Vec3, rd: Vec3) -> list:
+    def _collider(self, ro: Vec3, rd: Vec3) -> list:
         pass
 
 
 class Difference(CSGShapeBase):
     """Difference CSG operation."""
-    def __init__(shape_a: ShapeBase, shape_b: ShapeBase):
+    def __init__(self, shape_a: ShapeBase, shape_b: ShapeBase):
         pass
 
-    def _collider(ro: Vec3, rd: Vec3) -> list:
+    def _collider(self, ro: Vec3, rd: Vec3) -> list:
         pass

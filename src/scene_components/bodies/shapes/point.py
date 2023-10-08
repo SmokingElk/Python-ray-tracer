@@ -7,26 +7,26 @@ class Point:
     the parent shape, and the normal at that point.
     """
 
-    def __init__(value: float, parent_shape: ShapeBase, normal: Vec3):
+    def __init__(self, value: float, parent_shape: ShapeBase, normal: Vec3):
        pass
 
-    def reverse_normal():
+    def reverse_normal(self):
         """Returns the normal's direction in the point. Used by CSG system."""
 
-    def __eq__(other: "Point"):
+    def __eq__(self, other: "Point"):
         pass
 
-    def __ne__(other: "Point"):
+    def __ne__(self, other: "Point"):
         pass
 
-    def __lt__(other: "Point"):
+    def __lt__(self, other: "Point"):
         pass
 
-    def __le__(other: "Point"):
+    def __le__(self, other: "Point"):
         pass
 
-    def __gt__(other: "Point"):
+    def __gt__(self, other: "Point"):
         pass
 
-    def __ge__(other: "Point"):
+    def __ge__(self, other: "Point"):
         pass

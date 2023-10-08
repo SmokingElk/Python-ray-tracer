@@ -3,17 +3,17 @@ from math.vectors import Vec3
 
 
 class CSGShapeBase(ShapeBase): 
-    def __init__(shape_a: ShapeBase, shape_b: ShapeBase):
+    def __init__(self, shape_a: ShapeBase, shape_b: ShapeBase):
         """Takes 2 shapes-operands and realize a CSG operation."""
     
-    def translate(displacement: Vec3):
+    def translate(self, displacement: Vec3):
         """Performs a parallel transfer of the operands to the displacement vector."""
     
-    def rotate_yaw():
+    def rotate_yaw(self):
         """Shapes rotation isn't supported."""
 
-    def rotate_roll():
+    def rotate_roll(self):
         """Shapes rotation isn't supported."""
     
-    def rotate_pitch():
+    def rotate_pitch(self):
         """Shapes rotation isn't supported."""
