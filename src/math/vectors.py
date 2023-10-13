@@ -1,4 +1,4 @@
-def lerp(a, b, mixing):
+def lerp(a: float, b: float, mixing: float) -> float:
     return a + (b - a) * mixing   
 
 
