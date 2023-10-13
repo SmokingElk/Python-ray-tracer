@@ -1,3 +1,6 @@
+from math import cos, sin
+
+
 def lerp(a: float, b: float, mixing: float) -> float:
     return a + (b - a) * mixing   
 
@@ -93,6 +96,30 @@ class Vec3:
     def __matmul__(self, other: "Vec3"):
         """Returns dot product of 2 vectors."""
         return self.x * other.x + self.y * other.y + self.z * other.z
+
+    def rotateXY(self, angle: float):
+        "Rotates the vector in the plane XY"
+        x = self.x
+        y = self.y
+
+        self.x = x * cos(angle) - y * sin(angle)
+        self.y = x * sin(angle) + y * cos(angle)
+
+    def rotateXZ(self, angle: float):
+        "Rotates the vector in the plane XY"
+        x = self.x
+        z = self.z
+
+        self.x = x * cos(angle) - z * sin(angle)
+        self.z = x * sin(angle) + z * cos(angle)
+
+    def rotateYZ(self, angle: float):
+        "Rotates the vector in the plane YZ"
+        z = self.z
+        y = self.y
+
+        self.z = z * cos(angle) - y * sin(angle)
+        self.y = z * sin(angle) + y * cos(angle)
 
     def mag(self):
         """Returns vector's magnitude."""

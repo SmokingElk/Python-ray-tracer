@@ -1,5 +1,5 @@
 from bodies.shapes.shape_base import ShapeBase
-from math.vectors import Vec3
+from math_tools.vectors import Vec3
 
 
 class Box(ShapeBase):

@@ -1,4 +1,4 @@
-from math.vectors import Vec3
+from math_tools.vectors import Vec3
 
 
 class LightSourceBase:

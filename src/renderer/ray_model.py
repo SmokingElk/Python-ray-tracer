@@ -1,4 +1,4 @@
-from math.vectors import Vec3
+from math_tools.vectors import Vec3
 from scene_components.scene import Scene
 from scene_components.lights.light_source_base import LightSourceBase
 

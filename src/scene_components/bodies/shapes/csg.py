@@ -1,6 +1,6 @@
 from bodies.shapes.csg_shape_base import CSGShapeBase
 from bodies.shapes.shape_base import ShapeBase
-from math.vectors import Vec3
+from math_tools.vectors import Vec3
 
 
 class Union(CSGShapeBase):
