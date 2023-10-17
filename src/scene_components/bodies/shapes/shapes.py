@@ -1,17 +1,44 @@
 from bodies.shapes.shape_base import ShapeBase
 from math_tools.vectors import Vec3
-
-
-class Box(ShapeBase):
-    def __init__(self, pos: Vec3, size: Vec3):
-        pass
-
-    def _collider(self, ro: Vec3, rd: Vec3) -> list:
-        pass
+from math import sqrt
+from scene_components.bodies.shapes.point import Point, min_point, max_point
 
 
 class Sphere(ShapeBase): 
     def __init__(self, pos: Vec3, radius: float):
+        super().__init__()
+        self.translate(pos)
+        self.radius = radius
+        self._radius2 = radius**2
+
+    def _collider(self, ro: Vec3, rd: Vec3) -> list:
+        a = rd.dot(rd)
+        b = ro.dot(rd)
+        c = ro.dot(ro) - self._radius2
+
+        D = b**2 - a * c
+
+        if (D < 0): 
+            return []
+
+        sqrtD = sqrt(D)
+        t1 = (-b + sqrtD) / a
+        t2 = (-b - sqrtD) / a
+
+        normal1 = (ro + rd * t1).norm()
+        normal2 = (ro + rd * t2).norm()
+
+        point1 = Point(t1, self, normal1)
+        point2 = Point(t2, self, normal2)
+
+        if t1 < t2:
+            point1, point2 = point2, point1
+        
+        return [point1, point2]
+
+
+class Box(ShapeBase):
+    def __init__(self, pos: Vec3, size: Vec3):
         pass
 
     def _collider(self, ro: Vec3, rd: Vec3) -> list:

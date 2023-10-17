@@ -2,6 +2,26 @@ from math_tools.vectors import Vec3
 from bodies.shapes.shape_base import ShapeBase
 
 
+def min_point(*points):
+    res = points[0]
+
+    for i in points[1:]:
+        if i < res:
+            res = i
+
+    return res
+
+
+def max_point(*points):
+    res = points[0]
+
+    for i in points[1:]:
+        if i > res:
+            res = i
+
+    return res
+
+
 class Point:
     """specifies a data structure that stores the position of a point on a numeric line, 
     the parent shape, and the normal at that point.

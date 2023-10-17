@@ -25,7 +25,7 @@ class RayModel:
         far_point = Point(FAR_PLANE, None, None)
 
         for i in self.scene_objects:
-            collide_points = i._get_collide(ro, rd)
+            collide_points = i.get_collide(ro, rd)
 
             if len(collide_points) == 0 or collide_points[0] >= closest_point:
                 continue
@@ -44,7 +44,7 @@ class RayModel:
         far_point = Point(FAR_PLANE, None, None)
 
         for i in self.scene_objects:
-            collide_points = i._get_collide(point, dir)
+            collide_points = i.get_collide(point, dir)
             
             if len(collide_points) == 0:
                 continue
@@ -65,7 +65,7 @@ class RayModel:
         far_point = Point(FAR_PLANE, None, None)
 
         for i in self.scene_objects:
-            collide_points = i._get_collide(point, dir)
+            collide_points = i.get_collide(point, dir)
 
             if len(collide_points) == 0 or collide_points[0] >= closest_point:
                 continue

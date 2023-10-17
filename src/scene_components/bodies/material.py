@@ -6,5 +6,5 @@ class Material:
     def __init__(self, albedo: Vec3, glossiness: float, roughness: float):
         pass
 
-    def _shader(self, collide: Vec3, ambient: Vec3, light_sources: list, ray_model: RayModel) -> Vec3:
+    def _shader(self, collide: Vec3, ambient: Vec3, light_sources: list, ray_model: RayModel) -> tuple:
         """Determines the amount of light that will be reflected by the object."""
