@@ -6,7 +6,7 @@ class LightSourceBase:
     def __init__(self, color: Vec3):
         self.color = color / 255.0
 
-    def get_dir(self, dot: Vec3) -> Vec3:
+    def get_dir(self, point: Vec3) -> Vec3:
         """Returns the vector directed from the point to the light source."""
     
     def in_shadow(self, point: Vec3, ray_model: RayModel) -> bool:
