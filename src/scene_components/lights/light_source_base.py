@@ -1,5 +1,5 @@
-from math_tools.vectors import Vec3
-from renderer.ray_model import RayModel
+from src.math_tools.vectors import Vec3
+from src.renderer.ray_model import RayModel
 
 class LightSourceBase:
     """sets the data structure describing the light source"""

@@ -1,5 +1,5 @@
-from math_tools.vectors import Vec3
-from math_tools.utilities import in_rad
+from src.math_tools.vectors import Vec3
+from src.math_tools.utilities import in_rad
 
 
 class ShapeBase:

@@ -1,7 +1,7 @@
-from bodies.shapes.shape_base import ShapeBase
-from math_tools.vectors import Vec3
+from src.scene_components.bodies.shapes.shape_base import ShapeBase
+from src.math_tools.vectors import Vec3
 from math import sqrt
-from scene_components.bodies.shapes.point import Point, min_point, max_point
+from src.scene_components.bodies.shapes.point import Point, min_point, max_point
 
 
 class Sphere(ShapeBase): 

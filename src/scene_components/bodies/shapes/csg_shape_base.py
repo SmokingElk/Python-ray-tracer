@@ -1,5 +1,5 @@
-from bodies.shapes.shape_base import ShapeBase
-from math_tools.vectors import Vec3
+from src.scene_components.bodies.shapes.shape_base import ShapeBase
+from src.math_tools.vectors import Vec3
 
 
 class CSGShapeBase(ShapeBase): 

@@ -1,5 +1,5 @@
-from image_processing.image_converter_base import ImageConverterBase
-from image_processing.image_data import ImageData
+from src.image_processing.image_converter_base import ImageConverterBase
+from src.image_processing.image_data import ImageData
 from PIL import Image
 
 

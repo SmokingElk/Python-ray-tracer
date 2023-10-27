@@ -1,6 +1,6 @@
-from math_tools.vectors import Vec3
-from lights.light_source_base import LightSourceBase
-from renderer.ray_model import RayModel
+from src.math_tools.vectors import Vec3
+from src.scene_components.lights.light_source_base import LightSourceBase
+from src.renderer.ray_model import RayModel
 
 
 class PointLight(LightSourceBase):

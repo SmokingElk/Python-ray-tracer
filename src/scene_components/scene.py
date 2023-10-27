@@ -1,5 +1,5 @@
-from scene_components.lights.lighting import Lighting
-from renderer.camera_base import CameraBase
+from src.scene_components.lights.lighting import Lighting
+from src.renderer.camera_base import CameraBase
 
 
 class Scene:

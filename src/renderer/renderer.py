@@ -1,6 +1,6 @@
-from image_processing.image_data import ImageData, Color
-from scene_components.scene import Scene
-from renderer.ray_model import RayModel
+from src.image_processing.image_data import ImageData, Color
+from src.scene_components.scene import Scene
+from src.renderer.ray_model import RayModel
 
 class Renderer:
     """performs image rendering.""" 

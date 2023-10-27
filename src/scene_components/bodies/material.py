@@ -1,11 +1,11 @@
-from math_tools.vectors import Vec3
-from renderer.ray_model import RayModel
+from src.math_tools.vectors import Vec3
+from src.renderer.ray_model import RayModel
 
 
 class Material:
     """Determines the interaction of light with an object."""
     def __init__(self, albedo: Vec3, glossiness: float, roughness: float):
-        self._albedo = albedo
+        self._albedo = albedo / 255.0
         self._gloiness = glossiness
         self._roughness = roughness
 

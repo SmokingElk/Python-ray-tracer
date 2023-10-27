@@ -1,8 +1,8 @@
-from math_tools.vectors import Vec3
-from scene_components.scene import Scene
-from scene_components.lights.light_source_base import LightSourceBase
-from scene_components.bodies.shapes.point import Point
-from renderer.optic import reflect
+from src.math_tools.vectors import Vec3
+from src.scene_components.scene import Scene
+from src.scene_components.lights.light_source_base import LightSourceBase
+from src.scene_components.bodies.shapes.point import Point
+from src.renderer.optic import reflect
 
 NEAR_PLANE = 0.000000000001
 FAR_PLANE = 100
@@ -82,7 +82,7 @@ class RayModel:
         closest, closest_point = self._closest_collide(ro, rd)
 
         if closest == None:
-            return Vec3(0), Vec3(0), self.lighting.sky, 0
+            return Vec3(0), Vec3(0), self.lighting.sky, 1
 
         collide_point = ro + rd * closest_point._value
         normal = closest_point.get_normal()
@@ -107,7 +107,7 @@ class RayModel:
 
             res = res * (1 - reflectance) + color * reflectance
 
-            if next_reflectance == 0:
+            if next_reflectance == 1:
                 break
 
             ro = collide_point

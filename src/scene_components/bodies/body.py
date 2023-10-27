@@ -1,6 +1,6 @@
-from bodies.shapes.shape_base import ShapeBase
-from bodies.material import Material
-from math_tools.vectors import Vec3
+from src.scene_components.bodies.shapes.shape_base import ShapeBase
+from src.scene_components.bodies.material import Material
+from src.math_tools.vectors import Vec3
 from renderer.ray_model import RayModel
 
 

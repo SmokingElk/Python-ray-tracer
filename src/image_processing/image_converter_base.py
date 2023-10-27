@@ -1,4 +1,4 @@
-from image_processing.image_data import ImageData
+from src.image_processing.image_data import ImageData
 
 
 class ImageConverterBase:

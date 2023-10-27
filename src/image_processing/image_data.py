@@ -1,5 +1,5 @@
-from math_tools.vectors import Vec3
-from math_tools.utilities import limit
+from src.math_tools.vectors import Vec3
+from src.math_tools.utilities import limit
 
 class Color:
     """specifies a data structure that stores color in rgb 256 format.""" 

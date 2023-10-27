@@ -1,5 +1,5 @@
-from renderer.camera_base import CameraBase
-from math_tools.vectors import Vec3
+from src.renderer.camera_base import CameraBase
+from src.math_tools.vectors import Vec3
 from math import tan
 
 
