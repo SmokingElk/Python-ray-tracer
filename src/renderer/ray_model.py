@@ -1,7 +1,6 @@
 from src.math_tools.vectors import Vec3
-from src.scene_components.scene import Scene
-from src.scene_components.lights.light_source_base import LightSourceBase
 from src.scene_components.bodies.shapes.point import Point
+from src.scene_components.lights.lighting import Lighting
 from src.renderer.optic import reflect
 
 NEAR_PLANE = 0.000000000001
@@ -10,7 +9,7 @@ FAR_PLANE = 100
 
 class RayModel:
     """simulates the movement of a light beam across the scene."""
-    def __init__(self, lighting: dict, scene_objects: list):
+    def __init__(self, lighting: Lighting, scene_objects: list):
         self.lighting = lighting
         self.scene_objects = scene_objects
 
@@ -91,7 +90,7 @@ class RayModel:
             collide_point, 
             normal,
             self.lighting.ambient, 
-            self.lighting.light_source,
+            self.lighting.light_sources,
             self,
         ) 
         

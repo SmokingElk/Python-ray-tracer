@@ -35,7 +35,7 @@ class OrthogonalCamera(CameraBase):
 class PerspectiveCamera(CameraBase):
     """Realize an perspective projection."""
     def __init__(self, pos: Vec3, yaw: float=0.0, roll: float=0.0, pitch: float=0.0):
-        super().__init__(self, pos, yaw, roll, pitch)
+        super().__init__(pos, yaw, roll, pitch)
 
     def viewport(self, x: int, y: int, width: int, height: int) -> tuple:
         aspect_ratio = width / height

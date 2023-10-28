@@ -21,8 +21,8 @@ class PNGConverter(ImageConverterBase):
         res_image = Image.new("RGB", (image_data.width, image_data.height), (0, 0, 0))
         pixels = res_image.load()
 
-        for x in image_data.width:
-            for y in image_data.height:
+        for x in range(image_data.width):
+            for y in range(image_data.height):
                 pixel_color = image_data.get_pixel(x, y)
                 pixels[x, y] = (pixel_color.r, pixel_color.g, pixel_color.b)
 

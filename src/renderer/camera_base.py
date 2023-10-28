@@ -1,6 +1,6 @@
 from src.math_tools.vectors import Vec3
 from src.math_tools.utilities import in_rad
-from src.math import pi, atan2, asin
+from math import atan2, asin
 
 
 class CameraBase:

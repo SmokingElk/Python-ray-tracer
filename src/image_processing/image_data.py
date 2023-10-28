@@ -20,6 +20,6 @@ class ImageData:
     
     def get_pixel(self, pixel_x: int, pixel_y: int) -> Color: 
         """Get the color of a pixel with coordinates (pixel_x, pixel_y)."""
-        pixel_index = pixel_y * self.height + pixel_x
+        pixel_index = pixel_y * self.width + pixel_x
         return self._colors[pixel_index]
 

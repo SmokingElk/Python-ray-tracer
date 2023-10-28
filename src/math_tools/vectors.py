@@ -41,7 +41,7 @@ class Vec3:
 
     def __mul__(self, other: "Vec3"):
         "Returns product of the vector and a number or another vector."
-        if isinstance(other, float):
+        if not isinstance(other, Vec3):
             return Vec3(
                 self.x * other,
                 self.y * other,
@@ -55,7 +55,7 @@ class Vec3:
         )
 
     def __imul__(self, other: "Vec3"):
-        if isinstance(other, float): 
+        if not isinstance(other, Vec3): 
             self.x *= other
             self.y *= other
             self.z *= other
@@ -68,7 +68,7 @@ class Vec3:
 
     def __truediv__(self, other: "Vec3"):
         """Returns product of the vector and an inverse number or another vector."""
-        if isinstance(other, float):
+        if not isinstance(other, Vec3):
             return Vec3(
                 self.x / other,
                 self.y / other,
@@ -82,7 +82,7 @@ class Vec3:
         )
 
     def __itruediv__(self, other: "Vec3"):
-        if isinstance(other, float): 
+        if not isinstance(other, Vec3): 
             self.x /= other
             self.y /= other
             self.z /= other
@@ -105,6 +105,9 @@ class Vec3:
         self.x = x * cos(angle) - y * sin(angle)
         self.y = x * sin(angle) + y * cos(angle)
 
+        return self
+    
+
     def rotateXZ(self, angle: float):
         "Rotates the vector in the plane XY"
         x = self.x
@@ -113,6 +116,9 @@ class Vec3:
         self.x = x * cos(angle) - z * sin(angle)
         self.z = x * sin(angle) + z * cos(angle)
 
+        return self
+    
+
     def rotateYZ(self, angle: float):
         "Rotates the vector in the plane YZ"
         z = self.z
@@ -120,6 +126,9 @@ class Vec3:
 
         self.z = z * cos(angle) - y * sin(angle)
         self.y = z * sin(angle) + y * cos(angle)
+
+        return self
+    
 
     def mag(self):
         """Returns vector's magnitude."""

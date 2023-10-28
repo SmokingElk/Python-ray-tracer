@@ -12,9 +12,9 @@ class Sphere(ShapeBase):
         self._radius2 = radius**2
 
     def _collider(self, ro: Vec3, rd: Vec3) -> list:
-        a = rd.dot(rd)
-        b = ro.dot(rd)
-        c = ro.dot(ro) - self._radius2
+        a = rd @ rd
+        b = ro @ rd
+        c = (ro @ ro) - self._radius2
 
         D = b**2 - a * c
 

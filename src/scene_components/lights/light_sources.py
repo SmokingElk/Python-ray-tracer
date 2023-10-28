@@ -16,7 +16,7 @@ class PointLight(LightSourceBase):
         return ray_model.in_shadow_to_point(point, self.pos)
 
 
-class DirectedLight:
+class DirectedLight(LightSourceBase):
     """Specifies a data structure describing a directed light source."""
     def __init__(self, dir: Vec3, color: Vec3):
         super().__init__(color)

@@ -11,17 +11,17 @@ from src.image_processing.image_converters import PNGConverter
 
 scene = Scene(
     PerspectiveCamera(Vec3(0)),
-    Lighting(Vec3(0.1), [DirectedLight(Vec3(0.5, 0.5, -0.5), Vec3(250, 250, 250))]),
+    Lighting(Vec3(0.2), [DirectedLight(Vec3(0.5, 0.5, 0.5), Vec3(250, 250, 250))], Vec3(90, 200, 240)),
     [   
         Body(
             Sphere(Vec3(0, 0, 5), 0.5),
-            Material(Vec3(250, 120, 0), 0, 1),
+            Material(Vec3(240, 128, 0), 0, 1),
         ),
     ],
 )
 
 renderer = Renderer()
-image_data = renderer.render(scene, 320, 180)
+image_data = renderer.render(scene, 1920, 1080)
 
 converter = PNGConverter()
 converter.convert(image_data, "./res.png")
