@@ -78,14 +78,14 @@ class RayModel:
     
     def _cast_ray(self, ro: Vec3, rd: Vec3) -> tuple: 
         """Calculates the illumination of the point where the specified beam hits."""
-        closest, closest_point = self._closest_collide(ro, rd)
+        closest, closest_point = self._closest_collide(ro.copy(), rd.copy())
 
         if closest == None:
-            return Vec3(0), Vec3(0), self.lighting.sky, 1
+            return Vec3(0), Vec3(0), self.lighting.sky, 0
 
         collide_point = ro + rd * closest_point._value
         normal = closest_point.get_normal()
-
+        
         color, reflectance = closest.shader(
             collide_point, 
             normal,
@@ -99,19 +99,29 @@ class RayModel:
     def trace_ray(self, ro: Vec3, rd: Vec3) -> Vec3: 
         """determines the amount of light received from the direction opposite to rd by the point ro (reverse ray tracing)."""
         res = Vec3(0, 0, 0)
-        reflectance = 1
+
+        objectColors = []
+        objectReflectance = []
 
         for i in range(self.lighting.bounce_limit):
-            collide_point, normal, color, next_reflectance = self._cast_ray(ro, rd)
+            collide_point, normal, color, reflectance = self._cast_ray(ro, rd)
 
-            res = res * (1 - reflectance) + color * reflectance
+            objectColors.append(color)
+            objectReflectance.append(reflectance)
 
-            if next_reflectance == 1:
+            if reflectance == 0:
                 break
 
             ro = collide_point
             rd = reflect(rd, normal)
-            reflectance = next_reflectance
+
+        if len(objectColors) == 0:
+            return res
+
+        res = objectColors[-1]
+
+        for i in range(len(objectColors) - 2, -1, -1):
+            res = res * (1 - objectReflectance[i]) + objectColors[i] * objectReflectance[i]
 
         return res
 

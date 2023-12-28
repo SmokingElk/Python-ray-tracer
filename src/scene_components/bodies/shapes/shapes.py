@@ -32,9 +32,9 @@ class Sphere(ShapeBase):
         point2 = Point(t2, self, normal2)
 
         if t1 < t2:
-            point1, point2 = point2, point1
+            return [point1, point2]
         
-        return [point1, point2]
+        return [point2, point1]
 
 
 class Box(ShapeBase):
