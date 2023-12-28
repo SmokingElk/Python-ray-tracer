@@ -4,14 +4,15 @@ from src.math_tools.vectors import Vec3
 from src.scene_components.bodies.shapes.segments_operations import segments_union, segments_intersection, segments_difference
 
 
-
 class Union(CSGShapeBase):
     """Union CSG operation."""
-    def __init__(shape_a: ShapeBase, shape_b: ShapeBase):
+    def __init__(self, shape_a: ShapeBase, shape_b: ShapeBase):
         super().__init__(shape_a, shape_b)
 
-    def _collider(ro: Vec3, rd: Vec3) -> list:
-        pass
+    def _get_collide(self, ro: Vec3, rd: Vec3) -> list:
+        lineA = self.shape_a._get_collide(ro, rd)
+        lineB = self.shape_b._get_collide(ro, rd)
+        return segments_union(lineA, lineB)
 
 
 class Intersection(CSGShapeBase):
@@ -19,8 +20,10 @@ class Intersection(CSGShapeBase):
     def __init__(self, shape_a: ShapeBase, shape_b: ShapeBase):
         super().__init__(shape_a, shape_b)
 
-    def _collider(self, ro: Vec3, rd: Vec3) -> list:
-        pass
+    def _get_collide(self, ro: Vec3, rd: Vec3) -> list:
+        lineA = self.shape_a._get_collide(ro, rd)
+        lineB = self.shape_b._get_collide(ro, rd)
+        return segments_intersection(lineA, lineB)
 
 
 class Difference(CSGShapeBase):
@@ -28,5 +31,7 @@ class Difference(CSGShapeBase):
     def __init__(self, shape_a: ShapeBase, shape_b: ShapeBase):
         super().__init__(shape_a, shape_b)
 
-    def _collider(self, ro: Vec3, rd: Vec3) -> list:
-        pass
+    def _get_collide(self, ro: Vec3, rd: Vec3) -> list:
+        lineA = self.shape_a._get_collide(ro, rd)
+        lineB = self.shape_b._get_collide(ro, rd)
+        return segments_difference(lineA, lineB)
