@@ -6,16 +6,16 @@ from math import tan
 class OrthogonalCamera(CameraBase):
     """Realize an orthogonal projection."""
     def __init__(self, pos: Vec3, yaw: float, roll: float, pitch: float):
-        super().__init__(self, pos, yaw, roll, pitch)
+        super().__init__(pos, yaw, roll, pitch)
 
-    def viewport(self, x: int, y: int, width: int, height: int) -> tuple:
+    def viewport(self, x: int, y: int, width: int, height: int, pixel_aspect: float) -> tuple:
         aspect_ratio = width / height
 
-        offsetX = (x / width - 0.5) * aspect_ratio
+        offsetX = (x / width - 0.5) * aspect_ratio * pixel_aspect
         offsetY = (height - y) / height - 0.5
         offsetZ = 0
 
-        offset = Vec3(offsetX, offsetY, offsetZ).norm()
+        offset = Vec3(offsetX, offsetY, offsetZ)
 
         offset.rotateXY(self._roll)
         offset.rotateYZ(self._yaw)
@@ -37,10 +37,10 @@ class PerspectiveCamera(CameraBase):
     def __init__(self, pos: Vec3, yaw: float=0.0, roll: float=0.0, pitch: float=0.0):
         super().__init__(pos, yaw, roll, pitch)
 
-    def viewport(self, x: int, y: int, width: int, height: int) -> tuple:
+    def viewport(self, x: int, y: int, width: int, height: int, pixel_aspect: float) -> tuple:
         aspect_ratio = width / height
 
-        rdX = (x / width - 0.5) * aspect_ratio
+        rdX = (x / width - 0.5) * aspect_ratio * pixel_aspect
         rdY = (height - y) / height - 0.5
         rdZ = aspect_ratio / 2 / tan(self._FOV / 2)
 

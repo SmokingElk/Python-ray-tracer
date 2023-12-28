@@ -12,7 +12,7 @@ class CameraBase:
         pitch - camera rotation in the plane XZ (in radians)"""
 
         self._pos = pos
-        self._yaw = -in_rad(yaw)
+        self._yaw = in_rad(yaw)
         self._roll = -in_rad(roll)
         self._pitch = -in_rad(pitch)
         self._FOV = in_rad(FOV)
@@ -24,5 +24,5 @@ class CameraBase:
         self._roll = -atan2(dir_to_look.x, dir_to_look.z)
         self._yaw = -asin(dir_to_look.y)
 
-    def viewport(self, x: int, y: int, width: int, height: int) -> tuple:
+    def viewport(self, x: int, y: int, width: int, height: int, pixel_aspect: float) -> tuple:
         """Transform pixel coordinates to the ray's intersecting it origine and direction."""

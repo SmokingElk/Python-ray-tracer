@@ -74,7 +74,7 @@ class RayModel:
                     closest_point = j
                     break
 
-        return closest_point < len(point_to - point)
+        return closest_point._value < (point_to - point).mag()
     
     def _cast_ray(self, ro: Vec3, rd: Vec3) -> tuple: 
         """Calculates the illumination of the point where the specified beam hits."""

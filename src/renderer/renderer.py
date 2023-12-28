@@ -17,17 +17,18 @@ class Renderer:
 
     def _get_pixel_color(self, x: int, y: int) -> Color:
         """determines the color of a pixel by its screen coordinates""" 
-        ro, rd = self._scene.camera.viewport(x, y, self._width, self._height)
+        ro, rd = self._scene.camera.viewport(x, y, self._width, self._height, self._pixel_aspect)
         color_vec = self._ray_model.trace_ray(ro, rd)
 
         color = Color(color_vec)
         return color
     
-    def render(self, scene: Scene, width: int, height: int) -> ImageData:
+    def render(self, scene: Scene, width: int, height: int, pixel_aspect: float=1) -> ImageData:
         """Converts a scene model into an image."""
         self._scene = scene
         self._width = width
         self._height = height
+        self._pixel_aspect = pixel_aspect
         self._ray_model = RayModel(scene.lighting, scene.scene_objects)
 
         pixels = []
