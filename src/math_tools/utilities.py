@@ -7,3 +7,7 @@ def limit(value, minVal, maxVal):
 
 def in_rad(degrees: float) -> float:
     return degrees / 180.0 * pi
+
+
+def sign(value: float):
+    return 1 if value >= 0 else -1

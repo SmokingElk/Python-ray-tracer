@@ -81,12 +81,12 @@ class RayModel:
         closest, closest_point = self._closest_collide(ro.copy(), rd.copy())
 
         if closest == None:
-            return Vec3(0), Vec3(0), self.lighting.sky, 0
+            return Vec3(0), Vec3(0), self.lighting.sky, 1
 
         collide_point = ro + rd * closest_point._value
         normal = closest_point.get_normal()
         
-        color, reflectance = closest.shader(
+        color, roughness = closest.shader(
             collide_point, 
             normal,
             self.lighting.ambient, 
@@ -94,22 +94,22 @@ class RayModel:
             self,
         ) 
         
-        return collide_point, normal, color, reflectance
+        return collide_point, normal, color, roughness
 
     def trace_ray(self, ro: Vec3, rd: Vec3) -> Vec3: 
         """determines the amount of light received from the direction opposite to rd by the point ro (reverse ray tracing)."""
         res = Vec3(0, 0, 0)
 
         objectColors = []
-        objectReflectance = []
+        objectRoughness = []
 
         for i in range(self.lighting.bounce_limit):
-            collide_point, normal, color, reflectance = self._cast_ray(ro, rd)
+            collide_point, normal, color, roughness = self._cast_ray(ro, rd)
 
             objectColors.append(color)
-            objectReflectance.append(reflectance)
+            objectRoughness.append(roughness)
 
-            if reflectance == 0:
+            if roughness == 1:
                 break
 
             ro = collide_point
@@ -121,7 +121,7 @@ class RayModel:
         res = objectColors[-1]
 
         for i in range(len(objectColors) - 2, -1, -1):
-            res = res * (1 - objectReflectance[i]) + objectColors[i] * objectReflectance[i]
+            res = res * (1 - objectRoughness[i]) + objectColors[i] * objectRoughness[i]
 
         return res
 
