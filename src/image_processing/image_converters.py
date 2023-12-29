@@ -1,6 +1,7 @@
 from src.image_processing.image_converter_base import ImageConverterBase
 from src.image_processing.image_data import ImageData
 from PIL import Image
+from src.math_tools.utilities import limit
 
 
 class UnicodeConverter(ImageConverterBase):
@@ -20,9 +21,7 @@ class UnicodeConverter(ImageConverterBase):
                 pixel_color = image_data.get_pixel(x, y)
 
                 brightness = (pixel_color.r + pixel_color.g + pixel_color.b) / 3 / 255
-                gradient_index = max(
-                    min(int(brightness * len(self.gradient)), len(self.gradient) - 1), 0
-                )
+                gradient_index = limit(int(brightness * len(self.gradient)), 0, len(self.gradient) - 1) 
                 row += self.gradient[gradient_index]
 
             rows.append(row)
