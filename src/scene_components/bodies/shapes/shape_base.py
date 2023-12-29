@@ -13,18 +13,22 @@ class ShapeBase:
     def translate(self, displacement: Vec3):
         """Performs a parallel transfer of the shape to the displacement vector."""
         self._translate_vec += displacement
+        return self
 
     def rotate_yaw(self, angle: float):
         """Shape's rotation in the plane YZ (in radians)"""
         self._yaw_angle -= in_rad(angle)
+        return self
 
     def rotate_roll(self, angle: float):
         """Shape's rotation in the plane XY (in radians)"""
         self._roll_angle -= in_rad(angle)
+        return self
 
     def rotate_pitch(self, angle: float):
         """Shape's rotation in the plane XZ (in radians)"""
         self._pitch_angle -= in_rad(angle)
+        return self
 
     def _transform(self, ro: Vec3, rd: Vec3) -> tuple:
         """Performs transformations over the beam, to implement shape transformations."""

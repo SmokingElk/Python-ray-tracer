@@ -3,7 +3,7 @@ from src.scene_components.bodies.shapes.point import Point
 from src.scene_components.lights.lighting import Lighting
 from src.renderer.optic import reflect
 
-NEAR_PLANE = 0.000000000001
+NEAR_PLANE = 0.00000001
 FAR_PLANE = 100
 
 
@@ -58,7 +58,7 @@ class RayModel:
     def in_shadow_to_point(self, point: Vec3, point_to: Vec3) -> bool:
         """Checks if there any objects between to given points."""
 
-        dir = point_to - point
+        dir = (point_to - point).norm()
         closest_point = Point(FAR_PLANE, None, None)
 
         near_point = Point(NEAR_PLANE, None, None)

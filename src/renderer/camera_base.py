@@ -1,6 +1,6 @@
 from src.math_tools.vectors import Vec3
 from src.math_tools.utilities import in_rad
-from math import atan2, asin
+from math import atan2, sqrt
 
 
 class CameraBase:
@@ -23,8 +23,9 @@ class CameraBase:
         """Rotates the camera such a way the frames center will be looking in look_point."""
         dir_to_look = (look_point - self._pos).norm()
 
-        self._roll = -atan2(dir_to_look.x, dir_to_look.z)
-        self._yaw = -asin(dir_to_look.y)
+        self._pitch = -atan2(dir_to_look.x, dir_to_look.z)
+        self._yaw = atan2(dir_to_look.y, sqrt(dir_to_look.x**2 + dir_to_look.z**2))
+        return self
 
     def viewport(
         self, x: int, y: int, width: int, height: int, pixel_aspect: float
