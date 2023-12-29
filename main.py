@@ -33,5 +33,5 @@ scene = Scene(
 renderer = Renderer()
 image_data = renderer.render(scene, 80, 80 / 24 * 11, 11 / 24)
 
-converter = UnicodeConverter(" .:!r(lH@"[::-1])
+converter = UnicodeConverter(" .:!r(lH@")
 print(converter.convert(image_data))

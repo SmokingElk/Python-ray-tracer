@@ -1,37 +1,37 @@
 # Python ray tracer
 This project is developing by a student from Moscow Aviation Institute. Its purpose is to create a 3d objects renderer, which uses ray tracing method.
 ```
-
-
-
-
-
-
-                                   lll((((((((
-                             Hllllll((((((((((((((((
-                          HHllllllll((((((((((((((rrr((
-                        HHHHllllllll(((((((((((((((rrrrr(
-                      @HHHHHlllllllll(((((((((((((((((rr(((
-                     @@HHHHHHlllllllll((((((((((((((((((((((
-                    @@@HHHHHHHllllllllll(((((((((((((((((((((
-                   @@@@@HHHHHHHllllllllllll(((((((((((((((((((
-                   @@@@@@HHHHHHHHllllllllllll(((((((((((((((((
-                   @@@@@@@@HHHHHHHHllllllllllllll((((((((((((l
-::::::::::::::::::::@@@@@@@@@HHHHHHHHHlllllllllllllllllllllll:::::::::::::::::::
-:::::::::::::::::::::@@@@@@@@@@HHHHHHHHHHlllllllllllllllllll::::::::::::::::::::
-::::::::::::::::::::::@@@@@@@@@@@HHHHHHHHHHHHllllllllllllll:::::::::::::::::::::
-:::::::::::::::::::::::@@@@@@@@@@@@@HHHHHHHHHHHHHHHHHHHHHH::::::::::::::::::::::
-:::::::::::::::::::::::::@@@@@@@@@@@@@@@@HHHHHHHHHHHHHHH::::::::::::::::::::::::
-::rrrrrrrrrrrrrrrrrrrrrrrr::@@@@@@@@@@@@@@@@@@@@@@@@@:::::::::::::::::::::::::::
-::rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr@@@@@@@@@@@@@@@::::::::::::::::::::::::::::::::
-:::::::::::::::::::::::::::::::::lllllllllllllll::::::::::::::::::::::::::::::::
-::::::::::::::::::::::::::::lllllllllllllllllllllllll:::::::::::::::::::::::::::
-:::::::::::::::::::::::::lllllllllllllllllllll((((((((((::::::::::::::::::::::::
-:::::::::::::::::::::::llllllllllllllllll(((((((((((((((((::::::::::::::::::::::
-::::::::::::::::::::::lllllllllllllll((((((((((((((((((((((:::::::::::::::::::::
-::::::::::::::::::::llllllllllllll(((((((((((((((((((((((((((:::::::::::::::::::
-::::::::::::::::::::lllllllllll((((((((((((((((((((((((((((((:::::::::::::::::::
-:::::::::::::::::::llllllllll((((((((((((((((((((((((((((rrr((::::::::::::::::::
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@:::!!!!!!!!@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@.::::::!!!!!!!!!!!!!!!!@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@..::::::::!!!!!!!!!!!!!!rrr!!@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@....::::::::!!!!!!!!!!!!!!!rrrrr!@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@ .....:::::::::!!!!!!!!!!!!!!!!!rr!!!@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@  ......:::::::::!!!!!!!!!!!!!!!!!!!!!!@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@   .......::::::::::!!!!!!!!!!!!!!!!!!!!!@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@     .......::::::::::::!!!!!!!!!!!!!!!!!!!@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@      ........::::::::::::!!!!!!!!!!!!!!!!!@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@        ........::::::::::::::!!!!!!!!!!!!:@@@@@@@@@@@@@@@@@@
+llllllllllllllllllll         .........:::::::::::::::::::::::lllllllllllllllllll
+lllllllllllllllllllll          ..........:::::::::::::::::::llllllllllllllllllll
+llllllllllllllllllllll           ............::::::::::::::lllllllllllllllllllll
+lllllllllllllllllllllll             ......................llllllllllllllllllllll
+lllllllllllllllllllllllll                ...............llllllllllllllllllllllll
+llrrrrrrrrrrrrrrrrrrrrrrrrll                         lllllllllllllllllllllllllll
+llrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr               llllllllllllllllllllllllllllllll
+lllllllllllllllllllllllllllllllll:::::::::::::::llllllllllllllllllllllllllllllll
+llllllllllllllllllllllllllll:::::::::::::::::::::::::lllllllllllllllllllllllllll
+lllllllllllllllllllllllll:::::::::::::::::::::!!!!!!!!!!llllllllllllllllllllllll
+lllllllllllllllllllllll::::::::::::::::::!!!!!!!!!!!!!!!!!llllllllllllllllllllll
+llllllllllllllllllllll:::::::::::::::!!!!!!!!!!!!!!!!!!!!!!lllllllllllllllllllll
+llllllllllllllllllll::::::::::::::!!!!!!!!!!!!!!!!!!!!!!!!!!!lllllllllllllllllll
+llllllllllllllllllll:::::::::::!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!lllllllllllllllllll
+lllllllllllllllllll::::::::::!!!!!!!!!!!!!!!!!!!!!!!!!!!!rrr!!llllllllllllllllll
 ```
 
 ## Engine's features
