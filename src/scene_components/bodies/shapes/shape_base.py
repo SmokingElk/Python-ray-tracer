@@ -29,8 +29,17 @@ class ShapeBase:
     def _transform(self, ro: Vec3, rd: Vec3) -> tuple:
         """Performs transformations over the beam, to implement shape transformations."""
         roTranslated = ro - self._translate_vec
-        roTransformed = roTranslated.rotateXZ(-self._pitch_angle).rotateYZ(-self._yaw_angle).rotateXY(-self._roll_angle)
-        rdTransformed = rd.copy().rotateXZ(-self._pitch_angle).rotateYZ(-self._yaw_angle).rotateXY(-self._roll_angle)
+        roTransformed = (
+            roTranslated.rotateXZ(-self._pitch_angle)
+            .rotateYZ(-self._yaw_angle)
+            .rotateXY(-self._roll_angle)
+        )
+        rdTransformed = (
+            rd.copy()
+            .rotateXZ(-self._pitch_angle)
+            .rotateYZ(-self._yaw_angle)
+            .rotateXY(-self._roll_angle)
+        )
 
         return roTransformed, rdTransformed
 

@@ -2,13 +2,13 @@ from math import cos, sin
 
 
 def lerp(a: float, b: float, mixing: float) -> float:
-    return a + (b - a) * mixing   
+    return a + (b - a) * mixing
 
 
 class Vec3:
     def __init__(self, x, y=None, z=None):
         self.x = x
-        self.y = self.x if y == None else y 
+        self.y = self.x if y == None else y
         self.z = self.y if z == None else z
 
     def __add__(self, other: "Vec3"):
@@ -55,7 +55,7 @@ class Vec3:
         )
 
     def __imul__(self, other: "Vec3"):
-        if not isinstance(other, Vec3): 
+        if not isinstance(other, Vec3):
             self.x *= other
             self.y *= other
             self.z *= other
@@ -82,7 +82,7 @@ class Vec3:
         )
 
     def __itruediv__(self, other: "Vec3"):
-        if not isinstance(other, Vec3): 
+        if not isinstance(other, Vec3):
             self.x /= other
             self.y /= other
             self.z /= other
@@ -106,7 +106,6 @@ class Vec3:
         self.y = x * sin(angle) + y * cos(angle)
 
         return self
-    
 
     def rotateXZ(self, angle: float):
         "Rotates the vector in the plane XY"
@@ -117,7 +116,6 @@ class Vec3:
         self.z = x * sin(angle) + z * cos(angle)
 
         return self
-    
 
     def rotateYZ(self, angle: float):
         "Rotates the vector in the plane YZ"
@@ -128,11 +126,10 @@ class Vec3:
         self.y = z * sin(angle) + y * cos(angle)
 
         return self
-    
 
     def mag(self):
         """Returns vector's magnitude."""
-        return (self.x**2 + self.y**2 + self.z**2)**0.5
+        return (self.x**2 + self.y**2 + self.z**2) ** 0.5
 
     def norm(self):
         """Makes vector's length equals 1."""
@@ -153,4 +150,3 @@ class Vec3:
     def copy(self):
         """Returns a vector's copy."""
         return Vec3(self.x, self.y, self.z)
-        

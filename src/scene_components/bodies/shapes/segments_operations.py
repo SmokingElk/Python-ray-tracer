@@ -9,11 +9,11 @@ def get_seg(num_line, seg_num):
 def segments_union(lineA, lineB):
     if len(lineA) == 0 and len(lineB) == 0:
         return []
-    
+
     if len(lineA) == 0:
         return lineB[::]
-    
-    if len(lineB) == 0: 
+
+    if len(lineB) == 0:
         return lineA[::]
 
     if lineA[-1] < lineB[-1]:
@@ -84,7 +84,7 @@ def segments_union(lineA, lineB):
         point_to = segB[1]
         i += 1
 
-    while i < segACount: 
+    while i < segACount:
         addSeg(get_seg(lineA, i))
         i += 1
 
@@ -102,6 +102,7 @@ def segments_intersection(lineA, lineB):
     segBCount = len(lineB) // 2
 
     intersection = []
+
     def addSeg(seg):
         intersection.append(seg[0])
         intersection.append(seg[1])
@@ -145,6 +146,7 @@ def segments_difference(lineA, lineB):
     segBCount = len(lineB) // 2
 
     difference = []
+
     def addSeg(seg):
         difference.append(seg[0])
         difference.append(seg[1])
@@ -186,7 +188,7 @@ def segments_difference(lineA, lineB):
         point_from = segB[1]
         segBInd += 1
         if segBInd < segBCount:
-            segB = get_seg(lineB, segBInd);
+            segB = get_seg(lineB, segBInd)
             while segB[1] <= segA[1]:
                 point_to = segB[0]
                 addSeg([point_from, point_to])
@@ -195,7 +197,7 @@ def segments_difference(lineA, lineB):
                 if segBInd >= segBCount:
                     break
                 segB = get_seg(lineB, segBInd)
-        
+
         if segBInd >= segBCount:
             addSeg([point_from, segA[1]])
             i += 1
@@ -203,9 +205,8 @@ def segments_difference(lineA, lineB):
 
         if point_from < segA[1]:
             addSeg([point_from, min_point(segB[0], segA[1])])
-    
 
-    while i < segACount: 
+    while i < segACount:
         addSeg(get_seg(lineA, i))
         i += 1
 

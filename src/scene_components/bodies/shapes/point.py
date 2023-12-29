@@ -23,15 +23,15 @@ def max_point(*points):
 
 
 class Point:
-    """specifies a data structure that stores the position of a point on a numeric line, 
+    """specifies a data structure that stores the position of a point on a numeric line,
     the parent shape, and the normal at that point.
     """
 
     def __init__(self, value: float, parent_shape: ShapeBase, normal: Vec3):
-       self._value = value
-       self._parent_shape = parent_shape
-       self._normal = normal
-       self._normDir = 1
+        self._value = value
+        self._parent_shape = parent_shape
+        self._normal = normal
+        self._normDir = 1
 
     def reverse_normal(self):
         """Returns the normal's direction in the point. Used by CSG system."""

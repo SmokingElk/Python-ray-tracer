@@ -4,7 +4,9 @@ from math import atan2, asin
 
 
 class CameraBase:
-    def __init__(self, pos: Vec3, yaw: float, roll: float, pitch: float, FOV: float = 60):
+    def __init__(
+        self, pos: Vec3, yaw: float, roll: float, pitch: float, FOV: float = 60
+    ):
         """
         pos - camera position
         yaw - camera rotation in the plane YZ (in radians)
@@ -24,5 +26,7 @@ class CameraBase:
         self._roll = -atan2(dir_to_look.x, dir_to_look.z)
         self._yaw = -asin(dir_to_look.y)
 
-    def viewport(self, x: int, y: int, width: int, height: int, pixel_aspect: float) -> tuple:
+    def viewport(
+        self, x: int, y: int, width: int, height: int, pixel_aspect: float
+    ) -> tuple:
         """Transform pixel coordinates to the ray's intersecting it origine and direction."""
