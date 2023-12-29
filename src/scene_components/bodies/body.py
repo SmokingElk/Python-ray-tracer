@@ -13,10 +13,11 @@ class Body:
     def get_collide(self, ro: Vec3, rd: Vec3) -> list:
         return self.shape._get_collide(ro, rd)
     
-    def shader(self, collide: Vec3, normal: Vec3, ambient: Vec3, light_sources: list, ray_model: RayModel) -> tuple:
+    def shader(self, collide: Vec3, normal: Vec3, reflected: Vec3, ambient: Vec3, light_sources: list, ray_model: RayModel) -> tuple:
         return self.material._shader(
             collide,
             normal,
+            reflected,
             ambient,
             light_sources,
             ray_model   

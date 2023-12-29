@@ -9,18 +9,19 @@ from src.scene_components.lights.lighting import Lighting
 from src.renderer.cameras import PerspectiveCamera, OrthogonalCamera
 from src.math_tools.vectors import Vec3
 from src.image_processing.image_converters import PNGConverter, UnicodeConverter
+from src.image_processing.filters import gamma_correction
 
 scene = Scene(
-    PerspectiveCamera(Vec3(0, 0, -3), 0, 0, 0),
+    PerspectiveCamera(Vec3(0, 0, 0), 0, 0, 0),
     # OrthogonalCamera(Vec3(0, 0.5, 2), -15, 0, 5),
     Lighting(Vec3(0.2), [
         DirectedLight(Vec3(0.5, 0.5, -0.5), Vec3(250, 250, 250))
-    ], Vec3(0, 0, 0)),
+    ], Vec3(91, 200, 241)),
 
     [   
         Body(
             Plane(Vec3(0, -0.5, 0)),
-            Material(Vec3(220, 220, 220), 0, 0.3),
+            Material(Vec3(220, 220, 220), 0, 1),
         ),
 
         # Body(
@@ -95,12 +96,12 @@ scene = Scene(
 )
 
 renderer = Renderer()
-# image_data = renderer.render(scene, 320, 160)
+image_data = renderer.render(scene, 320, 160, filter=gamma_correction)
 
-# converter = PNGConverter()
-# converter.convert(image_data, "./res.png")
+converter = PNGConverter()
+converter.convert(image_data, "./res.png")
 
-image_data = renderer.render(scene, int(80 * 24 / 11), 45, 11 / 24)
+# image_data = renderer.render(scene, int(80 * 24 / 11), 45, 11 / 24)
 
-converter = UnicodeConverter(" .:!r(lH@")
-print(converter.convert(image_data))
+# converter = UnicodeConverter(" .:!r(lH@")
+# print(converter.convert(image_data))
