@@ -1,7 +1,7 @@
 from src.engine import (
     Vec3,
     Renderer,
-    PNGConverter,
+    PNGConverter, UnicodeConverter,
     PerspectiveCamera,
     Scene, Lighting, Body, Material,
     Sphere, Plane, Box, Cylinder, ClampedCylinder,
@@ -11,44 +11,19 @@ from src.engine import (
 )
 
 scene = Scene(
-    PerspectiveCamera(Vec3(0, 0.9, -2.9)).look_at(Vec3(0, 0.7, 0)),
+    PerspectiveCamera(Vec3(0, 0.5, -5)),
     Lighting(Vec3(0.2), [
-        PointLight(Vec3(0, 2, 0), Vec3(250)),
-    ], Vec3(175, 223, 241), bounce_limit=100),
+        DirectedLight(Vec3(1, 1, -1), Vec3(250)),
+    ], Vec3(232,239,241)),
 
     [   
         Body(
-            Plane(Vec3(-2, 0, -3), Vec3(1, 0, 0)),
-            Material(Vec3(220), 0, 0.3),
+            Plane(Vec3(0, 0, 0)),
+            Material(Vec3(220), 0, 0.5),
         ),
 
         Body(
-            Plane(Vec3(-3, 0, -3), Vec3(0, 1, 0)),
-            Material(Vec3(220)),
-        ),
-
-        Body(
-            Plane(Vec3(-3, 0, -3), Vec3(0, 0, 1)),
-            Material(Vec3(220), 0, 0.3),
-        ),
-
-        Body(
-            Plane(Vec3(2, 6, 3), Vec3(-1, 0, 0)),
-            Material(Vec3(220), 0, 0.3),
-        ),
-
-        Body(
-            Plane(Vec3(3, 4, 3), Vec3(0, -1, 0)),
-            Material(Vec3(220)),
-        ),
-
-        Body(
-            Plane(Vec3(3, 6, 3), Vec3(0, 0, -1)),
-            Material(Vec3(220), 0, 0.3),
-        ),
-
-        Body(
-            Sphere(Vec3(0, 0.6, 0.5), 0.6),
+            Sphere(Vec3(0, 0.6, 0), 0.6),
             Material(Vec3(30, 100, 220)),
         ),
     ],
@@ -56,7 +31,7 @@ scene = Scene(
 
 
 renderer = Renderer()
-image_data = renderer.render(scene, 320, 160, filter=gamma_correction)
+image_data = renderer.render(scene, 80, 80 / 24 * 11, 11 / 24)
 
-converter = PNGConverter()
-converter.convert(image_data, "./res.png")
+converter = UnicodeConverter(" .:!r(lH@"[::-1])
+print(converter.convert(image_data))

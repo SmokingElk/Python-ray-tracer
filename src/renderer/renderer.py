@@ -41,18 +41,18 @@ class Renderer:
     ) -> ImageData:
         """Converts a scene model into an image."""
         self._scene = scene
-        self._width = width
-        self._height = height
+        self._width = int(width)
+        self._height = int(height)
         self._pixel_aspect = pixel_aspect
         self._filter = filter
         self._ray_model = RayModel(scene.lighting, scene.scene_objects)
 
         pixels = []
 
-        for y in range(height):
-            for x in range(width):
+        for y in range(self._height):
+            for x in range(self._width):
                 pixelColor = self._get_pixel_color(x, y)
                 pixels.append(pixelColor)
 
-        image = ImageData(width, height, pixels)
+        image = ImageData(self._width, self._height, pixels)
         return image
