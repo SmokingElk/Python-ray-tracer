@@ -50,8 +50,8 @@ All the engines components can be imported from `engine.py` file. Let's import s
 
 ```Python
 from src.engine import (
-	Vec3,
-	Renderer,
+    Vec3,
+    Renderer,
     PNGConverter,
     PerspectiveCamera,
     Scene, Lighting, Body, Material,
