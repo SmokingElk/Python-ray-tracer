@@ -21,7 +21,9 @@ class UnicodeConverter(ImageConverterBase):
                 pixel_color = image_data.get_pixel(x, y)
 
                 brightness = (pixel_color.r + pixel_color.g + pixel_color.b) / 3 / 255
-                gradient_index = limit(int(brightness * len(self.gradient)), 0, len(self.gradient) - 1) 
+                gradient_index = limit(
+                    int(brightness * len(self.gradient)), 0, len(self.gradient) - 1
+                )
                 row += self.gradient[gradient_index]
 
             rows.append(row)
