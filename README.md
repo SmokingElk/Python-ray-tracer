@@ -130,3 +130,7 @@ CSG (left figure is Cube \ (Cylinder ∪ Box), right figure is Sphere ∩ Cube):
 Cornel box + spherical mirror:
 
 ![](figures/cornel_box.jpg)
+
+Infinity reflections in room with mirror walls
+
+![](figures/infinity_reflection.jpg)

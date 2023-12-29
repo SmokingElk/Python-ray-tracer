@@ -14,12 +14,12 @@ scene = Scene(
     PerspectiveCamera(Vec3(0, 0.9, -2.9)).look_at(Vec3(0, 0.7, 0)),
     Lighting(Vec3(0.2), [
         PointLight(Vec3(0, 2, 0), Vec3(250)),
-    ], Vec3(175, 223, 241)),
+    ], Vec3(175, 223, 241), bounce_limit=100),
 
     [   
         Body(
             Plane(Vec3(-2, 0, -3), Vec3(1, 0, 0)),
-            Material(Vec3(220, 93, 30)),
+            Material(Vec3(220), 0, 0.3),
         ),
 
         Body(
@@ -29,12 +29,12 @@ scene = Scene(
 
         Body(
             Plane(Vec3(-3, 0, -3), Vec3(0, 0, 1)),
-            Material(Vec3(220)),
+            Material(Vec3(220), 0, 0.3),
         ),
 
         Body(
             Plane(Vec3(2, 6, 3), Vec3(-1, 0, 0)),
-            Material(Vec3(30, 100, 220)),
+            Material(Vec3(220), 0, 0.3),
         ),
 
         Body(
@@ -44,12 +44,12 @@ scene = Scene(
 
         Body(
             Plane(Vec3(3, 6, 3), Vec3(0, 0, -1)),
-            Material(Vec3(220)),
+            Material(Vec3(220), 0, 0.3),
         ),
 
         Body(
             Sphere(Vec3(0, 0.6, 0.5), 0.6),
-            Material(Vec3(160, 160, 160), 0, 0.5),
+            Material(Vec3(30, 100, 220)),
         ),
     ],
 )
